@@ -1,0 +1,72 @@
+// 顏色漸變效果
+=hover-transition
+	-webkit-transition: all 0.30s ease-in-out
+	-moz-transition: all 0.30s ease-in-out
+	-ms-transition: all 0.30s ease-in-out
+	-o-transition: all 0.30s ease-in-out
+
+// 對齊 ex. 置中 +tac, 左 +tal, 右 +tar
+=tal
+	text-align: left
+=tac
+	text-align: center
+=tar
+	text-align: right
+
+// incomplete 2020/05/07
+=fonts
+	font:
+		size: size(1)
+		weight: 400
+		style: normal
+// go top
+=goTop
+	width: size(3)
+	height: size(3)
+	background: map-get($gotop, base)
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)
+	+radius(1.5)
+	font-size: size(1.25)
+	line-height: size(2.95)
+	+tac
+	display: none
+	position: fixed
+	z-index: 100
+	right: size(2.5)
+	bottom: size(3)
+	transition: all .75s
+	opacity: .5
+	&:hover
+		background: map-get($gotop, dark)
+		opacity: 1
+	&:active
+		background: map-get($gotop, light)
+		opacity: 1
+// input checkbox
+=checkbox
+	&[type="checkbox"]
+		-webkit-appearance: none
+		appearance: none
+		background: none
+		&::before, &::after
+			font:
+				family: 'Font Awesome\ 5 Free', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular', 'Font Awesome 5 Brands'
+				size: size(1.35)
+		&:after
+			content: '\f0c8'
+			color: #666
+	&[type="checkbox"]:checked
+		&:after
+			content: '\f14a'
+			background: $white
+			font-weight: 900
+=iconPic
+	&::after
+		content: '\f03e'
+		font:
+			family: 'Font Awesome\ 5 Free', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular', 'Font Awesome 5 Brands'
+			size: size(1.5)
+		color: map-get($button, base)
+	&:hover
+		&::after
+			color: map-get($button, dark)

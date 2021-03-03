@@ -1,0 +1,96 @@
+/* Orange's web template v2.1 */
+@charset "utf-8"
+// layout
+@import layout
+html
+	--background: #fff
+	--text: #212121
+	--btnTheme: #ccc
+	--header: #eee
+	--footer: #ccc
+	--nav: #212121
+	--navtext: #fff
+.theme-dark
+	--background: #212121
+	--text: #fff
+	--btnTheme: #2196f3
+	--header: #333
+	--footer: #111
+	--nav: #fff
+	--navtext: #212121
+.themes
+	background: var(--background)
+	color: var(--text)
+	transition: all .3s cubic-bezier(0.4, 0.0, 0.2, 1)
+	input
+		color: var(--text)
+div.btnTheme
+	width: 3.5rem
+	height: 1.9rem
+	background: var(--btnTheme)
+	+radius(25)
+	+p(.15)
+	position: relative
+	.toggle
+		cursor: pointer
+		top: 20px
+		right: 25px
+		font:
+			family: 'Font Awesome\ 5 Free', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular', 'Font Awesome 5 Brands'
+			size: size(1.5)
+			weight: 900
+		color: $white
+	.toggle:before
+		content: '\f111'
+		position: absolute
+		left: 3px
+	.toggle.active:before
+		content: '\f111'
+		-webkit-transform: translateX(26px)
+		-ms-transform: translateX(26px)
+		transform: translateX(26px)
+
+.sidenav
+	height: 100%
+	width: 0
+	position: fixed
+	z-index: 1
+	top: 0
+	left: 0
+	background: var(--nav)
+	overflow-x: hidden
+	transition: 0.5s
+	padding-top: 60px
+	a
+		padding: 8px 8px 8px 32px
+		text-decoration: none
+		font-size: 25px
+		color: var(--navtext)
+		display: block
+		transition: 0.3s
+		&:hover
+			color: var(--navtext)
+	.closebtn
+		position: absolute
+		top: 0
+		right: 25px
+		font-size: 36px
+		margin-left: 50px
+@media screen and (max-height: 450px)
+	.sidenav 
+		padding-top: 15px
+		a 
+			font-size: 18px
+	
+header
+	background: var(--header)
+	+mb(1)
+	+p(1)
+footer
+	background: var(--footer)
+	border-top: 1px solid $black
+	+tac
+	+mt(2)
+	+py(1)
+	.copyright
+		color: var(--text)

@@ -1,0 +1,65 @@
+// reset
+@import _reset
+// bootstrap 4 gird 
+@import _bootstrap-grid
+// breakpoint RWD setting
+@import _breakpoint
+// include
+@import _include
+// mixin 不會變動的基本項目
+@import _mixin
+// functions 基本架構運算及迴圈
+@import _functions
+// color 網站用色
+@import _colors
+@import menu
+
+html, body
+	width: 100%
+	height: 100%
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	+m(0)
+	+p(0)
+
+body
+	+fonttype("Raleway", "Noto Sans TC")
+	+fonts
+
+a, button, :before, :after
+	+hover-transition
+a
+	color: map-get($alink, base)
+	&:hover
+		color: map-get($alink, dark)
+	&:active
+		color: map-get($alink, light)
+button
+	background: none
+	border: none
+	outline: none
+	font-size: size(1.05)
+	+tac
+input
+	outline: none
+	border: none
+
+// headings 標題
+@for $i from 1 through 5
+	h#{6 - $i}
+		font-size: ($i + 3rem) * .25
+@function headings($from:1, $to:6)
+	@if $from == $to
+		@return 'h#{$from}'
+	@else
+		@return 'h#{$from},' + headings($from+1, $to)
+#{headings(1,2)}
+	font-weight: 900
+#{headings(3,5)}
+	font-weight: 500
+
+// gotop
+#goTop
+	+goTop
+	color: $main
